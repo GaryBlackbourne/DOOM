@@ -226,7 +226,7 @@ typedef struct
 {
     char*	name;
     int*	location;
-    void*	defaultvalue;
+    long long	defaultvalue;
     int		scantranslate;		// PC scan code hack
     int		untranslated;		// lousy hack
 } default_t;
@@ -254,15 +254,15 @@ default_t	defaults[] =
 
 // UNIX hack, to be removed. 
 #ifdef SNDSERV
-    {"sndserver", (int *) &sndserver_filename, (void*) "sndserver"},
+    {"sndserver", (int *) &sndserver_filename, (long long) "sndserver"},
     {"mb_used", &mb_used, 2},
 #endif
     
 #endif
 
 #ifdef LINUX
-    {"mousedev", (int*)&mousedev, (void*)"/dev/ttyS0"},
-    {"mousetype", (int*)&mousetype, (void*)"microsoft"},
+    {"mousedev", (int*)&mousedev, (long long)"/dev/ttyS0"},
+    {"mousetype", (int*)&mousetype, (long long)"microsoft"},
 #endif
 
     {"use_mouse",&usemouse, 1},
@@ -285,16 +285,16 @@ default_t	defaults[] =
 
     {"usegamma",&usegamma, 0},
 
-    {"chatmacro0", (int *) &chat_macros[0], (void*) HUSTR_CHATMACRO0 },
-    {"chatmacro1", (int *) &chat_macros[1], (void*) HUSTR_CHATMACRO1 },
-    {"chatmacro2", (int *) &chat_macros[2], (void*) HUSTR_CHATMACRO2 },
-    {"chatmacro3", (int *) &chat_macros[3], (void*) HUSTR_CHATMACRO3 },
-    {"chatmacro4", (int *) &chat_macros[4], (void*) HUSTR_CHATMACRO4 },
-    {"chatmacro5", (int *) &chat_macros[5], (void*) HUSTR_CHATMACRO5 },
-    {"chatmacro6", (int *) &chat_macros[6], (void*) HUSTR_CHATMACRO6 },
-    {"chatmacro7", (int *) &chat_macros[7], (void*) HUSTR_CHATMACRO7 },
-    {"chatmacro8", (int *) &chat_macros[8], (void*) HUSTR_CHATMACRO8 },
-    {"chatmacro9", (int *) &chat_macros[9], (void*) HUSTR_CHATMACRO9 }
+    {"chatmacro0", (int *) &chat_macros[0], (long long) HUSTR_CHATMACRO0 },
+    {"chatmacro1", (int *) &chat_macros[1], (long long) HUSTR_CHATMACRO1 },
+    {"chatmacro2", (int *) &chat_macros[2], (long long) HUSTR_CHATMACRO2 },
+    {"chatmacro3", (int *) &chat_macros[3], (long long) HUSTR_CHATMACRO3 },
+    {"chatmacro4", (int *) &chat_macros[4], (long long) HUSTR_CHATMACRO4 },
+    {"chatmacro5", (int *) &chat_macros[5], (long long) HUSTR_CHATMACRO5 },
+    {"chatmacro6", (int *) &chat_macros[6], (long long) HUSTR_CHATMACRO6 },
+    {"chatmacro7", (int *) &chat_macros[7], (long long) HUSTR_CHATMACRO7 },
+    {"chatmacro8", (int *) &chat_macros[8], (long long) HUSTR_CHATMACRO8 },
+    {"chatmacro9", (int *) &chat_macros[9], (long long) HUSTR_CHATMACRO9 }
 
 };
 
