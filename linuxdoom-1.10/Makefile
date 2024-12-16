@@ -1,11 +1,11 @@
-name              ?= linuxdoom
-version           ?= 1.11       # patched compilation errors
+doom-name         ?= linuxdoom
+# version           ?= 1.11       # patched compilation errors
 
 linuxdoom-sources := $(wildcard linuxdoom-1.10/*.c)
 linuxdoom-objects := $(patsubst linuxdoom-1.10/%.c, $(object-dir)/doom/%.o, $(linuxdoom-sources))
 linuxdoom-deps    := $(patsubst linuxdoom-1.10/%.c, $(object-dir)/doom/%.d, $(linuxdoom-sources))
 
-bin               := $(build-dir)/$(name)-$(version)
+linuxdoom-bin     := $(build-dir)/$(doom-name)
 
 CFLAGS            += -g
 CFLAGS            += -Wall
@@ -19,9 +19,9 @@ LDFLAGS           += -lX11
 LDFLAGS           += -lnsl
 LDFLAGS           += -lm
 
-linuxdoom: $(bin)
+linuxdoom: $(linuxdoom-bin)
 
-$(bin): $(linuxdoom-objects)
+$(linuxdoom-bin): $(linuxdoom-objects)
 	@mkdir -p $(@D)
 	$(CC) $^ -o $@ $(LDFLAGS)
 
@@ -31,8 +31,8 @@ $(object-dir)/doom/%.o: linuxdoom-1.10/%.c
 
 -include $(linuxdoom-deps)
 
-clean:
-	rm $(bin)
+doom-clean:
+	rm $(linuxdoom-bin)
 	rm $(linuxdoom-deps)
 	rm $(linuxdoom-objects)
-.PHONY: clean
+.PHONY: doom-clean
