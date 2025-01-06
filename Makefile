@@ -10,7 +10,9 @@ all: linuxdoom sndserver assets
 
 doom-assets-remote := https://distro.ibiblio.org/slitaz/sources/packages/d/doom1.wad
 assets: $(build-dir)/doom1.wad
-	curl -O $(doom-assets-remote)
+
+$(build-dir)/doom1.wad:
+	curl $(doom-assets-remote) -o $@
 
 clean: doom-clean sndserver-clean
 .PHONY: clean
